@@ -5,12 +5,6 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.ScrollView;
 
-/**
- * �Զ���ScrollView(������)
- * 
- * @author hlwang
- * 
- */
 public class MyScrollView extends ScrollView
 {
 	private static final int MAX_Y_OVERSCROLL_DISTANCE = 200; // �������������

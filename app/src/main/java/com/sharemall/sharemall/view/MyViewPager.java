@@ -4,12 +4,7 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 
-/**
- * �Զ���ViewPager�������Ժ���չ��
- * 
- * @author hailong
- * 
- */
+
 public class MyViewPager extends ViewPager
 {
 

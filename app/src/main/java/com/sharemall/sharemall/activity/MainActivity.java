@@ -11,6 +11,7 @@ import com.sharemall.sharemall.R;
 import com.sharemall.sharemall.base.BaseTabsPagerSimpleActivity;
 import com.sharemall.sharemall.fragment.MainAccountFragment;
 
+
 public class MainActivity extends BaseTabsPagerSimpleActivity {
 
     @Override

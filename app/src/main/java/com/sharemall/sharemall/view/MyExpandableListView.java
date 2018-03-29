@@ -5,12 +5,6 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.ExpandableListView;
 
-/**
- * �Զ���ExpandableListView
- * 
- * @author hlwang
- * 
- */
 public class MyExpandableListView extends ExpandableListView
 {
 	private static final int MAX_Y_OVERSCROLL_DISTANCE = 200; // �������������

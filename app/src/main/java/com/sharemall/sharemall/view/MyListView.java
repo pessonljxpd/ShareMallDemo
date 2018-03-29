@@ -5,12 +5,6 @@ import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.widget.ListView;
 
-/**
- * �Զ���ListView(������)
- * 
- * @author hlwang
- * 
- */
 public class MyListView extends ListView
 {
 	private static final int MAX_Y_OVERSCROLL_DISTANCE = 200; // �������������

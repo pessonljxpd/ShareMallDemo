@@ -20,10 +20,10 @@ import com.sharemall.sharemall.fragment.ShoppingCartFragment;
  */
 public class MainActivity extends BaseTabsPagerSimpleActivity {
 
-    private static final int INDEX_PAGE = 1;
-    private static final int CATEGORY_PAGE = 2;
-    private static final int SHOPPING_CART_PAGE = 3;
-    private static final int MINE_PAGE = 4;
+    private static final int INDEX_PAGE = 0;
+    private static final int CATEGORY_PAGE = 1;
+    private static final int SHOPPING_CART_PAGE = 2;
+    private static final int MINE_PAGE = 3;
 
     @Override
     protected void addTabs() {

@@ -5,12 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
-/**
- * �Զ���TextView
- * 
- * @author hailongw
- * 
- */
+
 public class MyTextView extends TextView
 {
 

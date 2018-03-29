@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.sharemall.sharemall.R;
@@ -17,6 +18,7 @@ import com.sharemall.sharemall.base.net.GlideImageLoader;
 import com.sharemall.sharemall.beans.JasonResult;
 import com.sharemall.sharemall.beans.MultipleItem;
 import com.sharemall.sharemall.repository.DataServer;
+import com.sharemall.sharemall.utils.StatusBarUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 
@@ -28,14 +30,23 @@ import java.util.List;
  */
 public class IndexFragment extends BaseLoadFragment<JasonResult> {
 
+    private LinearLayout mLLBar;
     private Banner mBanner;
     private RecyclerView mRecyclerView;
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getLoaderManager().restartLoader(1, null, this);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_index, container, false);
 
+        mLLBar = view.findViewById(R.id.ll_bar);
         mBanner = view.findViewById(R.id.banner);
         mRecyclerView = view.findViewById(R.id.rv_list);
         final List<MultipleItem> data = DataServer.getMultipleItemData();
@@ -57,10 +68,21 @@ public class IndexFragment extends BaseLoadFragment<JasonResult> {
         return view;
     }
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getLoaderManager().restartLoader(1, null, this);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initState();
+    }
+
+    private void initState() {
+        mLLBar.setVisibility(View.VISIBLE);
+        //获取到状态栏的高度
+        int statusHeight = StatusBarUtil.getStatusBarHeight(getActivity());
+        //动态的设置隐藏布局的高度
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mLLBar.getLayoutParams();
+        params.height = statusHeight;
+        mLLBar.setLayoutParams(params);
     }
 
     private void setBanner() {

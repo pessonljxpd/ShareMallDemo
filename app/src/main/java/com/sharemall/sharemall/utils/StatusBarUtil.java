@@ -92,7 +92,9 @@ public class StatusBarUtil {
      */
     public static void setStatusBar(Activity activity, boolean useThemestatusBarColor,
             boolean withoutUseStatusBarColor) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0及以上
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            //5.0及以上
             View decorView = activity.getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                     | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;

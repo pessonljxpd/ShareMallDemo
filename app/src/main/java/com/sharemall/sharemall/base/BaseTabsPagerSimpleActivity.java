@@ -15,6 +15,8 @@ import android.widget.TabHost.TabSpec;
 import android.widget.TabWidget;
 
 import com.sharemall.sharemall.R;
+import com.sharemall.sharemall.beans.Status;
+import com.sharemall.sharemall.utils.StatusBarUtil;
 
 
 public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implements OnTabChangeListener, IntentListener {
@@ -32,6 +34,9 @@ public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_tabs_pager_simple_activity);
+
+        StatusBarUtil.setStatusBar(this, false, false);
+
         container = findViewById(R.id.simple_fragment);
         mTabHost = findViewById(android.R.id.tabhost);
         mTabHost.setup();

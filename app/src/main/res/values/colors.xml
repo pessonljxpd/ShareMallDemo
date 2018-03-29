@@ -15,8 +15,12 @@
      limitations under the License.
 -->
 <resources>
+
+    <color name="colorPrimary">#FFFFFF</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
+    <color name="colorAccent">#77FFFFFF</color>
+
     <color name="tab">#CACACA</color>
-    <color name="white">#ffffffff</color>
     <color name="light_blue">#629FCC</color>
     <color name="black">#ff000000</color>
     <color name="gray">#ff808080</color>
@@ -66,7 +70,6 @@
     <color name="message_chat_material">#cbfaff</color>
     <color name="transparent">#00000000</color>
     <color name="light_white">#cccccc</color>
-    <color name="main_color">#FE8402</color>
 
 
     <color name="color_light_blue">#00DDB6</color>
@@ -80,4 +83,20 @@
     <color name="hard_color">#48495f</color>
     <color name="clickspan_color">#00ddb6</color>
     <color name="dull_blue">#3B4BBF</color>
+
+    <color name="input_hint_color">#C3C2C2</color>
+    <color name="text_main_color">#333333</color>
+    <color name="text_gray_color">#656565</color>
+    <!--item的分割线-->
+    <color name="colorLineItem">#F2F4F6</color>
+    <!-- app主色调-->
+    <color name="main_color">#2987e9</color>
+    <color name="login_btn_text_hint">#4CFFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="guide_gray">#A8A8A8</color>
+    <color name="light_blue_color">#2987e9</color>
+    <color name="alpha_80_black">#CC000000</color>
+    <color name="bg_color">#EDEDED</color>
+    <color name="home_searchbox_bg">#b1b8bb</color>
+    <color name="search_hint_text_color">#737373</color>
 </resources>

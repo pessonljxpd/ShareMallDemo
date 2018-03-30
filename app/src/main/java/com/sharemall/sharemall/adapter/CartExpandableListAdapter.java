@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -70,7 +69,7 @@ public class CartExpandableListAdapter extends BaseExpandableListAdapter {
                              boolean isLastChild, View convertView, ViewGroup parent)
     {
 
-        View view   = View.inflate(getContext(), R.layout.list_cart_item,null);
+        View view   = View.inflate(getContext(), R.layout.item_cart,null);
         AmountView amountView = view.findViewById(R.id.amount_view);
         amountView.setOnAmountChangeListener(new AmountView.OnAmountChangeListener() {
             @Override

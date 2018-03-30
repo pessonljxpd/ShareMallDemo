@@ -47,7 +47,7 @@
                 android:id="@+id/btn_cart_delete"
                 android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:background="@drawable/btn_cart_selector"
+                android:background="@drawable/btn_delete_selector"
                 android:layout_marginTop="@dimen/dp_10"
                 android:text="@string/delete"
                 />

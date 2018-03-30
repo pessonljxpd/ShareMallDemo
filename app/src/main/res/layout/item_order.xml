@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="horizontal"
+       android:paddingRight="20dp"
+       android:paddingLeft="@dimen/dp_10"
+       android:layout_height="35dp">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="35dp"
+           android:textSize="16sp"
+           android:textColor="@color/gray"
+           android:gravity="center_vertical"
+           android:text="订单号 ："
+           />
+       <TextView
+           android:layout_width="0dp"
+           android:layout_height="35dp"
+           android:text="564564654654"
+           android:textSize="16sp"
+           android:gravity="center_vertical"
+           android:textColor="@color/gray"
+           android:layout_weight="1"
+           />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="去支付"
+            android:textSize="16sp"
+
+            android:gravity="center_vertical"
+            android:textColor="#94f70f1e"
+            />
+
+   </LinearLayout>
+    <com.sharemall.sharemall.view.ChildLiistView
+        android:id="@+id/lv_order_childitem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:listSelector="@android:color/transparent"
+       >
+
+    </com.sharemall.sharemall.view.ChildLiistView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:layout_height="28dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+            android:gravity="center_vertical"
+            android:text="来自综合上传的订单"
+            />
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:paddingRight="20dp"
+        android:layout_height="28dp">
+        <TextView
+            android:id="@+id/tv_order_price"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:textSize="16sp"
+            android:textColor="#94f70f1e"
+            android:gravity="center_vertical"
+            android:text="$56445.0"
+            />
+        <TextView
+            android:id="@+id/tv_total_word"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:layout_toLeftOf="@id/tv_order_price"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+
+            android:gravity="center_vertical"
+            android:text="合计： "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            android:layout_toLeftOf="@id/tv_total_word"
+            android:textSize="14sp"
+            android:textColor="@color/gray"
+           android:paddingRight="@dimen/margin_10dp"
+            android:gravity="center_vertical"
+            android:text="共2件商品"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="28dp">
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="28dp"
+         android:text="订单详情"
+         android:layout_alignParentRight="true"
+         android:textSize="14sp"
+         android:textColor="@color/gray"
+         android:background="@drawable/btn_cart_all_selector"
+         />
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/line"
+        />
+</LinearLayout>

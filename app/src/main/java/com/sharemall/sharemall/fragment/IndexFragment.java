@@ -94,7 +94,7 @@ public class IndexFragment extends BaseLoadFragment<JasonResult> {
                 .setImages(imageUrl)
                 .setDelayTime(3000)
                 .setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
-                .setIndicatorGravity(BannerConfig.RIGHT)
+                .setIndicatorGravity(BannerConfig.CENTER)
                 .start();
     }
 

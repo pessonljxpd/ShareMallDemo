@@ -12,18 +12,12 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 
 
-/**
- * Fragment����
- * @author Shelly
- */
 public class BaseFragment extends Fragment implements OnClickListener,
         IntentListener {
 
     private static final boolean DEBUG = false;
 
-    /**
-     * ģ̬
-     */
+
     public MyProgressBar mProgressBar;
 
     private IntentListener intentFactory;
@@ -49,69 +43,37 @@ public class BaseFragment extends Fragment implements OnClickListener,
         mProgressBar = new MyProgressBar(getActivity());
     }
 
-    /**
-     * ����EditText���룬����ܳ���length�ĳ���
-     *
-     * @param et     EditText�ؼ�
-     * @param length ���Ƴ���
-     */
+
     public void limitEditTextLength(final EditText et, final int length) {
         if (baseActivity != null) {
             baseActivity.limitEditTextLength(et, length);
         }
     }
 
-    /**
-     * �������������fragment
-     *
-     * @param fragment
-     */
     @Override
     public void addFragment(BaseFragment fragment) {
         intentFactory.addFragment(fragment);
     }
 
-    /**
-     * �滻���������fragment
-     *
-     * @param newFragment
-     */
+
     @Override
     public void replaceFragment(BaseFragment newFragment) {
         intentFactory.replaceFragment(newFragment);
     }
 
-    /**
-     * fragment�滻
-     *
-     * @param newFragment    ��Ƭ
-     * @param addToBackStack �Ƿ񱣴��ջ��Ϣ
-     */
+
     @Override
     public void replaceFragment(BaseFragment newFragment, boolean addToBackStack) {
         intentFactory.replaceFragment(newFragment, addToBackStack);
     }
 
-    /**
-     * fragment�滻
-     *
-     * @param contentID      ����ID
-     * @param newFragment    ��Ƭ
-     * @param addToBackStack �Ƿ񱣴��ջ��Ϣ
-     */
+
     @Override
     public void replaceFragment(int contentID, BaseFragment newFragment,
             boolean addToBackStack) {
         intentFactory.replaceFragment(contentID, newFragment, addToBackStack);
     }
 
-    /**
-     * ȥ�ü�ͼƬ
-     *
-     * @param path       ͼƬ��ַ
-     * @param requestUri �ü��ص���ַ
-     * @param size       �ü���С
-     */
     @Override
     public void goToCropImage(String path, Uri requestUri, int size) {
         intentFactory.goToCropImage(path, requestUri, size);
@@ -122,42 +84,25 @@ public class BaseFragment extends Fragment implements OnClickListener,
         intentFactory.goToView(path);
     }
 
-    /**
-     * ͨ����ַ�鿴ͼƬ
-     *
-     * @param path ͼƬ��ַ
-     */
+
     @Override
     public void goToView(String path, Class<?> cls) {
         intentFactory.goToView(path, cls);
     }
 
-    /**
-     * ������ҳ����ת
-     *
-     * @param cls ��ת��ҳ��
-     */
+
     @Override
     public void goToOthers(Class<?> cls) {
         intentFactory.goToOthers(cls);
     }
 
-    /**
-     * ҳ����ת���رյ�ǰҳ��
-     *
-     * @param cls ��ת��ҳ��
-     */
+
     @Override
     public void goToOthersF(Class<?> cls) {
         intentFactory.goToOthersF(cls);
     }
 
-    /**
-     * ��������ҳ����ת
-     *
-     * @param cls    ��ת��ҳ��
-     * @param bundle ����
-     */
+
     @Override
     public void goToOthers(Class<?> cls, Bundle bundle) {
         intentFactory.goToOthers(cls, bundle);

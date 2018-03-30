@@ -51,6 +51,10 @@
             android:theme="@android:style/Theme.NoTitleBar">
 
         </activity>
+        <activity android:name=".activity.AddressListActivity"></activity>
+        <activity android:name=".activity.OrderListActivity"></activity>
+        <activity android:name=".activity.OrderdetailActivity"></activity>
+
     </application>
 
 </manifest>

@@ -8,4 +8,13 @@
     <dimen name="header_footer_top_bottom_padding">12dp</dimen>
     <dimen name="letter_size">16sp</dimen>
 
+    <dimen name="margin_24dp">24dp</dimen>
+    <dimen name="margin_10dp">10dp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="toollbar_height">48dp</dimen>
+    <dimen name="padding_status_bar_height">0dp</dimen>
+    <dimen name="titlebar_height">73dp</dimen>
+    <dimen name="margin_8dp">8dp</dimen>
+    <dimen name="font_large">18sp</dimen>
+
 </resources>

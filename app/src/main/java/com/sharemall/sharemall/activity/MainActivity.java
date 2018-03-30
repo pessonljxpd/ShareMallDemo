@@ -26,12 +26,6 @@ public class MainActivity extends BaseTabsPagerSimpleActivity {
     private static final int MINE_PAGE = 3;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     protected void addTabs() {
 
         addTab(initTabView(R.string.main_tab_info, R.drawable.tab_info_selector), new IndexFragment(), null,

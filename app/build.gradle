@@ -32,4 +32,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.0'
     compile 'com.alibaba:fastjson:1.2.38'
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.36'
+    compile 'com.youth.banner:banner:1.4.10'
+    compile 'com.github.bumptech.glide:glide:4.6.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
 }

@@ -6,34 +6,31 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 
-public class MyTextView extends TextView
-{
+public class MyTextView extends TextView {
 
-	private static final String NAMESPACE = "http://www.ywlx.net/apk/res/easymobi";
-	private static final String ATTR_ROTATE = "rotate";
-	private static final int DEFAULTVALUE_DEGREES = 0;
-	private int degrees;
+    private static final String NAMESPACE = "http://www.ywlx.net/apk/res/easymobi";
+    private static final String ATTR_ROTATE = "rotate";
+    private static final int DEFAULTVALUE_DEGREES = 0;
+    private int degrees;
 
-	public MyTextView(Context context)
-	{
-		super(context);
-	}
+    public MyTextView(Context context) {
+        super(context);
+    }
 
-	public MyTextView(Context context, AttributeSet attrs)
-	{
-		super(context, attrs);
-		degrees = attrs.getAttributeIntValue(NAMESPACE, ATTR_ROTATE,
-		        DEFAULTVALUE_DEGREES);
-	}
+    public MyTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        degrees = attrs.getAttributeIntValue(NAMESPACE, ATTR_ROTATE,
+                DEFAULTVALUE_DEGREES);
+    }
 
-	protected void onDraw(Canvas canvas)
-	{
-		canvas.rotate(degrees, getMeasuredWidth() / 2, getMeasuredHeight() / 2);
-		super.onDraw(canvas);
-	}
+    @Override
+    protected void onDraw(Canvas canvas) {
+        canvas.rotate(degrees, getMeasuredWidth() / 2, getMeasuredHeight() / 2);
+        super.onDraw(canvas);
+    }
 
-	public boolean isFocused()
-	{
-		return true;
-	}
+    @Override
+    public boolean isFocused() {
+        return true;
+    }
 }

@@ -14,19 +14,19 @@ import com.sharemall.sharemall.utils.ImageUtil;
 public class MyApplication extends Application {
     private static MyApplication instance = null;
     /**
-     * �Ƿ��¼
+     * 是否登录
      */
     public boolean isLogin = false;
 
     /**
-     * Ӧ���Ƿ��������
+     * 应用是否可以升级
      */
     public boolean isAppUpdate = false;
 
     public boolean isModify = false;
 
     /**
-     * �û���Ϣ
+     * 用户信息
      */
     private UserInfo user;
 
@@ -69,11 +69,11 @@ public class MyApplication extends Application {
     }
 
     /**
-     * ��ʼ���û�ͷ��
+     * 初始化用户头像
      *
-     * @param context      ������
-     * @param imagePath    ͷ���ַ
-     * @param iv_user_icon ͷ��ؼ�
+     * @param context      上下文
+     * @param imagePath    头像地址
+     * @param iv_user_icon 头像控件
      */
     public static void initUserIcon(Context context, ImageUtil imageUtil,
             String imagePath, final ImageView iv_user_icon, int dipSize) {

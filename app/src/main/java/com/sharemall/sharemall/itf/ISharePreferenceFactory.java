@@ -6,155 +6,152 @@ import android.content.SharedPreferences.Editor;
 import com.sharemall.sharemall.beans.UserInfo;
 
 /**
- * sharePreference��������
- * 
- * 
+ * sharePreference操作工厂
+ *
+ * @author Shelly
  */
-public interface ISharePreferenceFactory
-{
+public interface ISharePreferenceFactory {
 
-	public SharedPreferences getSharedPreferences();
+    /**
+     * getSharedPreferences
+     *
+     * @return
+     */
+    SharedPreferences getSharedPreferences();
 
-	public Editor getEditor();
+    /**
+     * getEditor
+     *
+     * @return
+     */
+    Editor getEditor();
 
-	/**
-	 * �Ƿ�ȥ����ҳ��
-	 * 
-	 * @return
-	 */
-	public boolean isGoToGuide();
+    /**
+     * 是否去导航页面
+     *
+     * @return
+     */
+    boolean isGoToGuide();
 
-	/**
-	 * ��ɵ���
-	 */
-	public void finishGuide();
+    /**
+     * 完成导航
+     */
+    void finishGuide();
 
-	/**
-	 * �Ƿ�ȥ����ҳ��
-	 * 
-	 * @return
-	 */
-	public boolean showFunctionGuide();
+    /**
+     * 是否去导航页面
+     *
+     * @return
+     */
+    boolean showFunctionGuide();
 
-	/**
-	 * ��ɵ���
-	 */
-	public void finishFunctionGuide();
+    /**
+     * 完成导航
+     */
+    void finishFunctionGuide();
 
-	public void setUser(UserInfo info);
+    void setUser(UserInfo info);
 
-	public UserInfo getUser();
+    UserInfo getUser();
 
-	/**
-	 * �����˺�
-	 * 
-	 * @param userName
-	 *            �˺�
-	 */
-	public void setUserName(String userName);
+    /**
+     * 设置账号
+     *
+     * @param userName 账号
+     */
+    void setUserName(String userName);
 
-	/**
-	 * ��ȡ����
-	 * 
-	 * @return ����
-	 */
-	public String getUserName();
+    /**
+     * 获取密码
+     *
+     * @return 密码
+     */
+    String getUserName();
 
-	/**
-	 * ��������
-	 * 
-	 * @param password
-	 *            ����
-	 */
-	public void setPassword(String password);
+    /**
+     * 设置密码
+     *
+     * @param password 密码
+     */
+    void setPassword(String password);
 
-	/**
-	 * ��ȡ����
-	 * 
-	 * @return ����
-	 */
-	public String getPassword();
+    /**
+     * 获取密码
+     *
+     * @return 密码
+     */
+    String getPassword();
 
-	/**
-	 * ���ü�ס����
-	 * 
-	 * @param isRememberPassword
-	 *            �Ƿ��ס����
-	 */
-	public void setRememberPassword(boolean isRememberPassword);
+    /**
+     * 设置记住密码
+     *
+     * @param isRememberPassword 是否记住密码
+     */
+    void setRememberPassword(boolean isRememberPassword);
 
-	/**
-	 * �Ƿ��ס����
-	 * 
-	 * @return �Ƿ��ס����
-	 */
-	public boolean isRememberPassword();
+    /**
+     * 是否记住密码
+     *
+     * @return 是否记住密码
+     */
+    boolean isRememberPassword();
 
-	/**
-	 * �����Ƿ��Զ���¼
-	 * 
-	 * @param isAutoLogin
-	 *            �Ƿ��Զ���¼
-	 */
-	public void setAutoLogin(boolean isAutoLogin);
+    /**
+     * 设置是否自动登录
+     *
+     * @param isAutoLogin 是否自动登录
+     */
+    void setAutoLogin(boolean isAutoLogin);
 
-	/**
-	 * �Ƿ��Զ���¼
-	 * 
-	 * @return �Ƿ��Զ���¼
-	 */
-	public boolean isAutoLogin();
-
-	
-
+    /**
+     * 是否自动登录
+     *
+     * @return 是否自动登录
+     */
+    boolean isAutoLogin();
 
 
-	/**
-	 * ����Ĭ����ϵ��
-	 * 
-	 * @param linkman
-	 *            Ĭ����ϵ��
-	 */
-	public void setLinkman(String linkman);
+    /**
+     * 设置默认联系人
+     *
+     * @param linkman 默认联系人
+     */
+    void setLinkman(String linkman);
 
-	/**
-	 * ��ȡĬ����ϵ��
-	 * 
-	 * @return Ĭ����ϵ��
-	 */
-	public String getLinkman();
+    /**
+     * 获取默认联系人
+     *
+     * @return 默认联系人
+     */
+    String getLinkman();
 
-	/**
-	 * ����Ĭ����ϵ�绰
-	 * 
-	 * @param contactTele
-	 *            Ĭ����ϵ�绰
-	 */
-	public void setContactTele(String contactTele);
+    /**
+     * 设置默认联系电话
+     *
+     * @param contactTele 默认联系电话
+     */
+    void setContactTele(String contactTele);
 
-	/**
-	 * ��ȡĬ����ϵ�绰
-	 * 
-	 * @return Ĭ����ϵ�绰
-	 */
-	public String getContactTele();
+    /**
+     * 获取默认联系电话
+     *
+     * @return 默认联系电话
+     */
+    String getContactTele();
 
-	/**
-	 * �����Ƿ񱣴�����
-	 * 
-	 * @param isSaveSetting
-	 *            �Ƿ񱣴�����
-	 */
-	public void setSaveSetting(boolean isSaveSetting);
+    /**
+     * 设置是否保存设置
+     *
+     * @param isSaveSetting 是否保存设置
+     */
+    void setSaveSetting(boolean isSaveSetting);
 
-	/**
-	 * �Ƿ񱣴�����
-	 * 
-	 * @return �Ƿ񱣴�����
-	 */
-	public boolean isSaveSetting();
+    /**
+     * 是否保存设置
+     *
+     * @return 是否保存设置
+     */
+    boolean isSaveSetting();
 
-	
-	
 
 }

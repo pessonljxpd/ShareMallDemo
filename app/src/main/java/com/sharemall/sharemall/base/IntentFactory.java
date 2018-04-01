@@ -1,7 +1,5 @@
 package com.sharemall.sharemall.base;
 
-import java.io.File;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +9,11 @@ import android.widget.Toast;
 
 import com.sharemall.sharemall.utils.Tools;
 
+import java.io.File;
+
+/**
+ * @author Shelly
+ */
 public class IntentFactory implements IntentListener {
     private Context context;
 
@@ -86,7 +89,7 @@ public class IntentFactory implements IntentListener {
     @Override
     public void homeAction() {
         Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// ע��
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addCategory(Intent.CATEGORY_HOME);
         context.startActivity(intent);
     }
@@ -112,7 +115,7 @@ public class IntentFactory implements IntentListener {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(context, "���豸�޷��ṩ�绰����", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "该设备无法提供电话服务！", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -144,8 +147,7 @@ public class IntentFactory implements IntentListener {
     }
 
     @Override
-    public void replaceFragment(int contentID, BaseFragment newFragment,
-            boolean addToBackStack) {
+    public void replaceFragment(int contentID, BaseFragment newFragment, boolean addToBackStack) {
 
     }
 

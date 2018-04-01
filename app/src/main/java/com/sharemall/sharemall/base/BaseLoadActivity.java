@@ -5,17 +5,17 @@ import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.content.Loader;
 
 /**
- * ��ҪLoading�Ļ���
+ * 需要Loading的基类
  *
- * @param <L> ��������
+ * @author Shelly
  */
 public abstract class BaseLoadActivity<L> extends BaseActivity implements LoaderCallbacks<L> {
 
     /**
-     * �������
+     * 加载完成
      *
-     * @param action ��ʾ
-     * @param arg1   ����
+     * @param action 标示
+     * @param arg1   数据
      */
     protected abstract void loadFinished(int action, L arg1);
 
@@ -31,7 +31,6 @@ public abstract class BaseLoadActivity<L> extends BaseActivity implements Loader
 
     @Override
     public void onLoaderReset(Loader<L> arg0) {
-
     }
 
 }

@@ -1,10 +1,6 @@
 package com.sharemall.sharemall.base;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -15,10 +11,14 @@ import android.widget.TabHost.TabSpec;
 import android.widget.TabWidget;
 
 import com.sharemall.sharemall.R;
-import com.sharemall.sharemall.beans.Status;
-import com.sharemall.sharemall.utils.StatusBarUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
+/**
+ * @author Shelly
+ */
 public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implements OnTabChangeListener, IntentListener {
     protected TabHost mTabHost;
     protected TabWidget mTabWidget;
@@ -34,22 +34,17 @@ public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implement
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_tabs_pager_simple_activity);
-
-        StatusBarUtil.setStatusBar(this, false, false);
-
-        container = findViewById(R.id.simple_fragment);
-        mTabHost = findViewById(android.R.id.tabhost);
+        container = (FrameLayout) findViewById(R.id.simple_fragment);
+        mTabHost = (TabHost) findViewById(android.R.id.tabhost);
         mTabHost.setup();
         mTabWidget = mTabHost.getTabWidget();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {
-            mTabWidget.setDividerDrawable(null);
-        }
+        mTabWidget.setDividerDrawable(null);
         mTabHost.setOnTabChangedListener(this);
 
-        fragments = new ArrayList<>();
-        isLoadContents = new ArrayList<>();
-        containerIDs = new ArrayList<>();
-        containers = new ArrayList<>();
+        fragments = new ArrayList<BaseFragment>();
+        isLoadContents = new ArrayList<Boolean>();
+        containerIDs = new ArrayList<Integer>();
+        containers = new ArrayList<FrameLayout>();
 
         addTabs();
 
@@ -69,37 +64,37 @@ public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implement
     }
 
     /**
-     * ����Tab�л�
+     * 设置Tab切换
      *
-     * @param tabIndex �л���Tab�±�
+     * @param tabIndex 切换的Tab下标
      */
     protected void setTabChange(int tabIndex) {
         mTabHost.setCurrentTab(tabIndex);
     }
 
     /**
-     * ��ȡ��ǰTab�±�
+     * 获取当前Tab下标
      *
-     * @return Tab�±�
+     * @return Tab下标
      */
     protected int getTabPosition() {
         return currentIndex;
     }
 
     /**
-     * ������Ҫʵ��add tab�ķ���
-     * �磺mTabsAdapter.addTab(mTabHost.newTabSpec("custom").setIndicator
+     * 子类需要实现add tab的方法
+     * 如：mTabsAdapter.addTab(mTabHost.newTabSpec("custom").setIndicator
      * ("Custom"), LoaderCourseListSupport.CourseListFragment.class, null);
      */
     protected abstract void addTabs();
 
     /**
-     * ���Tab��ҳ��
+     * 添加tab子页面
      *
-     * @param tabText Tab��������
-     * @param type    Tab����
-     * @param cls     TabҳClass����
-     * @param bundle  ���ݲ���
+     * @param tabView     Tab导航名称
+     * @param fragment    Tab类型
+     * @param bundle      Tab页Class对象
+     * @param containerID 传递参数
      */
     protected void addTab(View tabView, BaseFragment fragment, Bundle bundle,
             Integer containerID) {
@@ -117,9 +112,7 @@ public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implement
         fragments.add(fragment);
         TabSpec tabSpec = mTabHost.newTabSpec(fragment.getClass()
                 .getSimpleName());
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {
-            tabSpec.setIndicator(tabView);
-        }
+        tabSpec.setIndicator(tabView);
         tabSpec.setContent(new DummyTabFactory(this));
         mTabHost.addTab(tabSpec);
     }

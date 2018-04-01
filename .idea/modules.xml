@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ShareMallDemo.iml" filepath="$PROJECT_DIR$/ShareMallDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShareMall.iml" filepath="$PROJECT_DIR$/ShareMall.iml" />
+      <module fileurl="file://D:\MyAndroidCode\sihu\ShareMall\ShareMallDemo.iml" filepath="D:\MyAndroidCode\sihu\ShareMall\ShareMallDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

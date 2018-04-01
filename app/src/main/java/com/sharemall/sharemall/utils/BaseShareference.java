@@ -1,6 +1,5 @@
 package com.sharemall.sharemall.utils;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -11,27 +10,31 @@ import com.sharemall.sharemall.beans.UserInfo;
 import com.sharemall.sharemall.itf.ISharePreferenceFactory;
 
 
+/**
+ * @author Shelly
+ */
 public class BaseShareference implements ISharePreferenceFactory {
     private SharedPreferences sp;
 
     private Editor editor;
 
-    @SuppressLint("CommitPrefEdits")
     public BaseShareference(Context context) {
         sp = context.getSharedPreferences("config", Context.MODE_PRIVATE);
         editor = sp.edit();
     }
+
     @Override
     public Editor getEditor() {
         return editor;
     }
+
     @Override
     public SharedPreferences getSharedPreferences() {
         return sp;
     }
 
     /**
-     * �Ƿ�ȥ����ҳ��
+     * 是否去导航页面
      *
      * @return
      */
@@ -41,7 +44,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ɵ���
+     * 完成导航
      */
     @Override
     public void finishGuide() {
@@ -50,7 +53,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * �Ƿ�ȥ����ҳ��
+     * 是否去导航页面
      *
      * @return
      */
@@ -60,17 +63,19 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ɵ���
+     * 完成导航
      */
     @Override
     public void finishFunctionGuide() {
         editor.putBoolean("showFunctionGuide", false);
         editor.commit();
     }
+
     @Override
     public UserInfo getUser() {
         return new Gson().fromJson(sp.getString("user", ""), UserInfo.class);
     }
+
     @Override
     public void setUser(UserInfo info) {
         editor.putString("user", new Gson().toJson(info));
@@ -78,7 +83,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * �����˺�
+     * 设置账号
      */
     @Override
     public void setUserName(String userName) {
@@ -87,7 +92,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ȡ�˺�
+     * 获取账号
      */
     @Override
     public String getUserName() {
@@ -95,7 +100,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��������
+     * 设置密码
      */
     @Override
     public void setPassword(String password) {
@@ -104,7 +109,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ȡ����
+     * 获取密码
      */
     @Override
     public String getPassword() {
@@ -112,7 +117,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * �����Ƿ��ס����
+     * 设置是否记住密码
      */
     @Override
     public void setRememberPassword(boolean isRememberPassword) {
@@ -122,7 +127,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * �Ƿ��ס����
+     * 是否记住密码
      */
     @Override
     public boolean isRememberPassword() {
@@ -130,7 +135,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * �����Ƿ��Զ���¼
+     * 设置是否自动登录
      */
     @Override
     public void setAutoLogin(boolean isAutoLogin) {
@@ -139,7 +144,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * �Ƿ��Զ���¼
+     * 是否自动登录
      */
     @Override
     public boolean isAutoLogin() {
@@ -147,7 +152,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ����Ĭ����������
+     * 设置默认搜索城市
      */
     public void setDefultCity(String defultCity) {
         editor.putString("defultCity", defultCity);
@@ -158,7 +163,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ����Ĭ����������ID
+     * 设置默认搜索城市ID
      */
     public void setDefultCityID(String defultCityID) {
         editor.putString("defultCityID", defultCityID);
@@ -170,7 +175,7 @@ public class BaseShareference implements ISharePreferenceFactory {
 
 
     /**
-     * ����Ĭ�Ϲ������ڵ�
+     * 设置默认工程所在地
      */
     public void setProjectArea(String projectArea) {
         editor.putString(MyApplication.getInstance().getUser().userID
@@ -179,7 +184,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ȡĬ�Ϲ������ڵ�
+     * 获取默认工程所在地
      */
     public String getProjectArea() {
         return sp.getString(MyApplication.getInstance().getUser().userID
@@ -187,7 +192,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ����Ĭ����ϵ��
+     * 设置默认联系人
      */
     @Override
     public void setLinkman(String linkman) {
@@ -197,7 +202,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ȡĬ����ϵ��
+     * 获取默认联系人
      */
     @Override
     public String getLinkman() {
@@ -206,7 +211,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ȡĬ����ϵ�绰
+     * 获取默认联系电话
      */
     @Override
     public void setContactTele(String contactTele) {
@@ -216,7 +221,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ȡĬ����ϵ�绰
+     * 获取默认联系电话
      */
     @Override
     public String getContactTele() {
@@ -225,7 +230,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * �����Ƿ񱣴�����
+     * 设置是否保存设置
      */
     @Override
     public void setSaveSetting(boolean isSaveSetting) {
@@ -235,7 +240,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * �Ƿ񱣴�����
+     * 是否保存设置
      */
     @Override
     public boolean isSaveSetting() {
@@ -244,7 +249,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ���ù������ڵ�ID
+     * 设置工程所在地ID
      */
     public void setProjectAreaID(String projectAreaID) {
         editor.putString(MyApplication.getInstance().getUser().userID
@@ -253,7 +258,7 @@ public class BaseShareference implements ISharePreferenceFactory {
     }
 
     /**
-     * ��ȡ�������ڵ�ID
+     * 获取工程所在地ID
      */
     public String getProjectAreaID() {
         return sp.getString(MyApplication.getInstance().getUser().userID

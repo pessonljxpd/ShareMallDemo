@@ -1,27 +1,28 @@
 package com.sharemall.sharemall.utils;
 
-import java.util.Map;
-
 import android.content.Context;
 
 import com.sharemall.sharemall.base.net.BaseAsyncTaskLoader;
 import com.sharemall.sharemall.beans.JasonResult;
 
+import java.util.Map;
+
 
 /**
- * ��������̨����Loader
+ * 服务器后台请求Loader
+ * @author Shelly
  */
 public class JasonResultLoader extends BaseAsyncTaskLoader<JasonResult> {
-    //��json
-    //��json
+    //传json
+    //返json
 
     /**
-     * ���췽��
+     * 构造方法
      *
-     * @param context ������
-     * @param action  �ӿڱ�ʾ
-     * @param params  Header����
-     * @param obj     Body����
+     * @param context 上下文
+     * @param action  接口标示
+     * @param params  Header参数
+     * @param obj     Body对象
      */
     public JasonResultLoader(Context context, int action,
             Map<String, String> params, Object obj) {
@@ -29,8 +30,9 @@ public class JasonResultLoader extends BaseAsyncTaskLoader<JasonResult> {
     }
 
     /**
-     * ��̨����
+     * 后台处理
      */
+    @Override
     public JasonResult loadInBackground() {
         return mDataUtil.postJasonResult(url, params, obj);
     }

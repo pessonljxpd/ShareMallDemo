@@ -1,7 +1,5 @@
 package com.sharemall.sharemall.base;
 
-import java.io.File;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,69 +9,103 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
+import java.io.File;
 
-public class BaseFragment extends Fragment implements OnClickListener,
-        IntentListener {
+
+/**
+ * Fragment基类
+ *
+ * @author Shelly
+ */
+public class BaseFragment extends Fragment implements OnClickListener, IntentListener {
 
     private static final boolean DEBUG = false;
 
-
+    /**
+     * 模态
+     */
     public MyProgressBar mProgressBar;
 
     private IntentListener intentFactory;
     private BaseActivity baseActivity;
 
-
+    @Override
     public void onAttach(Activity activity) {
-        if (DEBUG) {
-            System.out.println("fragment��ʼonAttach");
-        }
+        if (DEBUG) { System.out.println("fragment开始onAttach"); }
 
         super.onAttach(activity);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        if (DEBUG) {
-            System.out.println("fragment��ʼonCreate");
-        }
+        if (DEBUG) { System.out.println("fragment开始onCreate"); }
         super.onCreate(savedInstanceState);
         intentFactory = new FragmentIntentFactory(this);
         baseActivity = getBaseActivity();
         mProgressBar = new MyProgressBar(getActivity());
     }
 
-
+    /**
+     * 限制EditText输入，最长不能超过length的长度
+     *
+     * @param et     EditText控件
+     * @param length 限制长度
+     */
     public void limitEditTextLength(final EditText et, final int length) {
-        if (baseActivity != null) {
-            baseActivity.limitEditTextLength(et, length);
-        }
+        if (baseActivity != null) { baseActivity.limitEditTextLength(et, length); }
     }
 
+    /**
+     * 往容器里面添加fragment
+     *
+     * @param fragment
+     */
     @Override
     public void addFragment(BaseFragment fragment) {
         intentFactory.addFragment(fragment);
     }
 
-
+    /**
+     * 替换容器里面的fragment
+     *
+     * @param newFragment
+     */
     @Override
     public void replaceFragment(BaseFragment newFragment) {
         intentFactory.replaceFragment(newFragment);
     }
 
-
+    /**
+     * fragment替换
+     *
+     * @param newFragment    碎片
+     * @param addToBackStack 是否保存堆栈信息
+     */
     @Override
     public void replaceFragment(BaseFragment newFragment, boolean addToBackStack) {
         intentFactory.replaceFragment(newFragment, addToBackStack);
     }
 
-
+    /**
+     * fragment替换
+     *
+     * @param contentID      容器ID
+     * @param newFragment    碎片
+     * @param addToBackStack 是否保存堆栈信息
+     */
     @Override
     public void replaceFragment(int contentID, BaseFragment newFragment,
             boolean addToBackStack) {
         intentFactory.replaceFragment(contentID, newFragment, addToBackStack);
     }
 
+    /**
+     * 去裁剪图片
+     *
+     * @param path       图片地址
+     * @param requestUri 裁剪回调地址
+     * @param size       裁剪大小
+     */
     @Override
     public void goToCropImage(String path, Uri requestUri, int size) {
         intentFactory.goToCropImage(path, requestUri, size);
@@ -84,35 +116,52 @@ public class BaseFragment extends Fragment implements OnClickListener,
         intentFactory.goToView(path);
     }
 
-
+    /**
+     * 通过地址查看图片
+     *
+     * @param path 图片地址
+     */
     @Override
     public void goToView(String path, Class<?> cls) {
         intentFactory.goToView(path, cls);
     }
 
-
+    /**
+     * 单纯的页面跳转
+     *
+     * @param cls 跳转的页面
+     */
     @Override
     public void goToOthers(Class<?> cls) {
         intentFactory.goToOthers(cls);
     }
 
-
+    /**
+     * 页面跳转并关闭当前页面
+     *
+     * @param cls 跳转的页面
+     */
     @Override
     public void goToOthersF(Class<?> cls) {
         intentFactory.goToOthersF(cls);
     }
 
-
+    /**
+     * 带参数的页面跳转
+     *
+     * @param cls    跳转的页面
+     * @param bundle 参数
+     */
     @Override
     public void goToOthers(Class<?> cls, Bundle bundle) {
         intentFactory.goToOthers(cls, bundle);
     }
 
     /**
-     * ��������ҳ����ת���رյ�ǰҳ��
+     * 带参数的页面跳转并关闭当前页面
      *
-     * @param cls    ��ת��ҳ��
-     * @param bundle ����
+     * @param cls    跳转的页面
+     * @param bundle 参数
      */
     @Override
     public void goToOthersF(Class<?> cls, Bundle bundle) {
@@ -120,11 +169,11 @@ public class BaseFragment extends Fragment implements OnClickListener,
     }
 
     /**
-     * ���ص���ҳ����ת
+     * 带回调的页面跳转
      *
-     * @param cls         ��ת��ҳ��
-     * @param bundle      ����
-     * @param requestCode ������
+     * @param cls         跳转的页面
+     * @param bundle      参数
+     * @param requestCode 请求码
      */
     @Override
     public void goToOthersForResult(Class<?> cls, Bundle bundle, int requestCode) {
@@ -132,11 +181,11 @@ public class BaseFragment extends Fragment implements OnClickListener,
     }
 
     /**
-     * ���ûص�
+     * 设置回调
      *
-     * @param cls        �ص���ҳ��
-     * @param bundle     ����
-     * @param resultCode ������
+     * @param cls        回调的页面
+     * @param bundle     参数
+     * @param resultCode 返回码
      */
     @Override
     public void backForResult(Class<?> cls, Bundle bundle, int resultCode) {
@@ -144,9 +193,9 @@ public class BaseFragment extends Fragment implements OnClickListener,
     }
 
     /**
-     * ��ĳһҳ�涥��
+     * 让某一页面顶置
      *
-     * @param bundle ����
+     * @param bundle 参数
      */
     @Override
     public void upToHome(Class<?> cls, Bundle bundle) {
@@ -154,7 +203,7 @@ public class BaseFragment extends Fragment implements OnClickListener,
     }
 
     /**
-     * ��ĳһҳ�涥��
+     * 让某一页面顶置
      */
     @Override
     public void upToHome(Class<?> cls) {
@@ -167,9 +216,9 @@ public class BaseFragment extends Fragment implements OnClickListener,
     }
 
     /**
-     * ��ת����ҳ
+     * 跳转到网页
      *
-     * @param url ��ҳ��ַ
+     * @param url 网页地址
      */
     @Override
     public void goToWeb(String url) {
@@ -177,9 +226,9 @@ public class BaseFragment extends Fragment implements OnClickListener,
     }
 
     /**
-     * ��绰
+     * 打电话
      *
-     * @param telePhoneNum �绰����
+     * @param telePhoneNum 电话号码
      */
     @Override
     public void goToCall(String telePhoneNum) {
@@ -187,7 +236,7 @@ public class BaseFragment extends Fragment implements OnClickListener,
     }
 
     /**
-     * ��װӦ��
+     * 安装应用
      *
      * @param file
      */
@@ -210,11 +259,11 @@ public class BaseFragment extends Fragment implements OnClickListener,
     }
 
     /**
-     * ҳ��ص�����
+     * 页面回调函数
      *
-     * @param requestCode ������
-     * @param resultCode  ������
-     * @param data        ����
+     * @param requestCode 请求码
+     * @param resultCode  返回码
+     * @param data        数据
      */
     protected void onActivityResult(int requestCode, int resultCode, Bundle data) {
 
@@ -222,46 +271,36 @@ public class BaseFragment extends Fragment implements OnClickListener,
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        if (DEBUG) {
-            System.out.println("fragment��ʼonActivityCreated");
-        }
+        if (DEBUG) { System.out.println("fragment开始onActivityCreated"); }
         super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public void onStart() {
-        if (DEBUG) {
-            System.out.println("fragment��ʼonStart");
-        }
+        if (DEBUG) { System.out.println("fragment开始onStart"); }
         super.onStart();
     }
 
-
     @Override
     public void onDestroyView() {
-        if (DEBUG) {
-            System.out.println("fragment��ʼonDestroyView");
-        }
+        if (DEBUG) { System.out.println("fragment开始onDestroyView"); }
         super.onDestroyView();
     }
 
     @Override
     public void onDestroy() {
-        if (DEBUG) {
-            System.out.println("fragment��ʼonDestroy");
-        }
+        if (DEBUG) { System.out.println("fragment开始onDestroy"); }
         super.onDestroy();
     }
-
 
     @Override
     public void onClick(View v) {
     }
 
     /**
-     * ��ȡActivity�������
+     * 获取Activity基类对象
      *
-     * @return BaseActivity����
+     * @return BaseActivity对象
      */
     public BaseActivity getBaseActivity() {
         try {

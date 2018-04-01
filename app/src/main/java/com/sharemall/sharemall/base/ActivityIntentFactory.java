@@ -1,7 +1,5 @@
 package com.sharemall.sharemall.base;
 
-import java.io.File;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -13,8 +11,11 @@ import android.support.v4.app.FragmentTransaction;
 import com.sharemall.sharemall.R;
 import com.sharemall.sharemall.utils.ConstantUtil;
 
+import java.io.File;
+
 /**
- * Activityҳ����ת
+ * Activity页面跳转
+ * @author Shelly
  */
 public class ActivityIntentFactory extends IntentFactory {
     private FragmentActivity activity;
@@ -65,12 +66,12 @@ public class ActivityIntentFactory extends IntentFactory {
         if (file.exists()) {
             Intent intent = new Intent("com.android.camera.action.CROP");
             intent.setDataAndType(Uri.fromFile(file), "image/*");
-            // �������crop=true�������ڿ�����Intent��������ʾ��VIEW�ɲü�
+            // 下面这个crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
             intent.putExtra("crop", "true");
-            // aspectX aspectY �ǿ�ߵı���
+            // aspectX aspectY 是宽高的比例
             intent.putExtra("aspectX", 1);
             intent.putExtra("aspectY", 1);
-            // outputX outputY �ǲü�ͼƬ���
+            // outputX outputY 是裁剪图片宽高
             intent.putExtra("outputX", size);
             intent.putExtra("outputY", size);
             intent.putExtra("return-data", false);

@@ -1,33 +1,33 @@
 package com.sharemall.sharemall.base.net;
 
-import java.util.List;
-import java.util.Map;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.sharemall.sharemall.beans.JasonResult;
 import com.sharemall.sharemall.utils.Tools;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
+import java.util.Map;
+
 /**
- * ���ݴ�������
+ * 数据处理工具类
  *
  * @author wanghl-a
  */
 public class DataUtil {
     /**
-     * GSON������
+     * GSON建立者
      */
     private GsonBuilder mGsonBuilder;
     /**
-     * GSONת����
+     * GSON转换类
      */
     private Gson mGson;
 
     /**
-     * ���캯��
+     * 构造函数
      */
     public DataUtil() {
         mGsonBuilder = new GsonBuilder();
@@ -35,12 +35,12 @@ public class DataUtil {
     }
 
     /**
-     * POST��ʽ
+     * POST方式
      *
-     * @param url    ��ַ
-     * @param params ����
-     * @param obj    post����
-     * @return JasonResult����
+     * @param url    地址
+     * @param params 参数
+     * @param obj    post对象
+     * @return JasonResult对象
      */
     public JasonResult postJasonResult(String url, Map<String, String> params,
             Object obj) {
@@ -59,12 +59,12 @@ public class DataUtil {
     }
 
     /**
-     * POST��ʽ
+     * POST方式
      *
-     * @param url    ��ַ
-     * @param params ����
-     * @param byte[] ͼƬ
-     * @return JasonResult����
+     * @param url    地址
+     * @param params 参数
+     * @param b      图片
+     * @return JasonResult对象
      */
     public JasonResult postJasonResult(String url, Map<String, String> params,
             byte[] b) {
@@ -99,12 +99,12 @@ public class DataUtil {
     }
 
     /**
-     * ͼƬѯ��
+     * 图片询价
      *
-     * @param url    ��ַ
-     * @param params ����
-     * @param info   PicEnquiryInfo����
-     * @return JasonResult����
+     * @param url    地址
+     * @param params 参数
+     * @param list   PicEnquiryInfo对象
+     * @return JasonResult对象
      */
     public JasonResult picEnquiry(String url, Map<String, String> params,
             List<byte[]> list) {

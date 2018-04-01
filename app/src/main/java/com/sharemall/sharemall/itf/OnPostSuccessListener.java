@@ -1,6 +1,13 @@
 package com.sharemall.sharemall.itf;
 
-public interface OnPostSuccessListener
-{
-	public void onPostSuccess(int action, String result);
+/**
+ * @author Shelly
+ */
+public interface OnPostSuccessListener {
+    /**
+     * onPostSuccess
+     * @param action
+     * @param result
+     */
+    void onPostSuccess(int action, String result);
 }

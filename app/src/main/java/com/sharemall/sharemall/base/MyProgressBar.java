@@ -16,7 +16,7 @@ import com.sharemall.sharemall.utils.Tools;
 
 
 /**
- * ģ̬�Ի���
+ * 模态对话框
  *
  * @author wanghl-a
  */
@@ -28,9 +28,9 @@ public class MyProgressBar extends Dialog {
     private View view;
 
     /**
-     * �������
+     * 构造参数
      *
-     * @param context ������
+     * @param context 上下文
      */
     public MyProgressBar(Context context) {
         super(context, R.style.dialog_no_animation);

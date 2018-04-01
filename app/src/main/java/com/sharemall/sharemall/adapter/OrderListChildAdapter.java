@@ -8,7 +8,9 @@ import com.sharemall.sharemall.beans.OrderInfoItem;
 import java.util.List;
 
 /**
- * Created by Administrator on 2018/3/30 0030.
+ *
+ * @author Administrator
+ * @date 2018/3/30 0030
  */
 
 public class OrderListChildAdapter extends BasicAdapter<OrderInfoItem> {

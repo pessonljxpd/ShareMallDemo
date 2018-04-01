@@ -3,216 +3,212 @@ package com.sharemall.sharemall.beans;
 import java.io.Serializable;
 
 /**
- * �û���Ϣ
- * 
+ * 用户信息
+ *
  * @author wanghl-a
- * 
  */
-public class UserInfo implements Serializable
-{
-	/**
-     * 
+public class UserInfo implements Serializable {
+    /**
+     *
      */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public UserInfo()
-	{
-	}
+    public UserInfo() {
+    }
 
-	public UserInfo(int userID, String alias, String topImagePath,
-	        String gender, String address, String sign)
-	{
-		this.userID = userID;
-		this.alias = alias;
-		this.topImagePath = topImagePath;
-		this.gender = gender;
-		this.address = address;
-		this.sign = sign;
-	}
+    public UserInfo(int userID, String alias, String topImagePath,
+            String gender, String address, String sign) {
+        this.userID = userID;
+        this.alias = alias;
+        this.topImagePath = topImagePath;
+        this.gender = gender;
+        this.address = address;
+        this.sign = sign;
+    }
 
-	/**
-	 * �û��˺�
-	 */
-	public String userName;
+    /**
+     * 用户账号
+     */
+    public String userName;
 
-	/**
-	 * �û����루���ܺ�
-	 */
-	public String password;
+    /**
+     * 用户密码（加密后）
+     */
+    public String password;
 
-	/**
-	 * �����루�޸�����ʱʹ�ã�
-	 */
-	public String newPassword;
+    /**
+     * 新密码（修改密码时使用）
+     */
+    public String newPassword;
 
-	/**
-	 * �û�ID
-	 */
-	public int userID;
+    /**
+     * 用户ID
+     */
+    public int userID;
 
-	/**
-	 * �ṩ��ID
-	 */
-	public int supplierID;
+    /**
+     * 提供商ID
+     */
+    public int supplierID;
 
-	/**
-	 * �û��ǳ�
-	 */
-	public String alias;
+    /**
+     * 用户昵称
+     */
+    public String alias;
 
-	/**
-	 * ͷ��·��
-	 */
-	public String topImagePath;
+    /**
+     * 头像路径
+     */
+    public String topImagePath;
 
-	/**
-	 * �Ա�
-	 */
-	public String gender;
+    /**
+     * 性别
+     */
+    public String gender;
 
-	/**
-	 * ���ڵ�
-	 */
-	public String address;
+    /**
+     * 所在地
+     */
+    public String address;
 
-	/**
-	 * ���ڵ�code
-	 */
-	public String areaCode;
+    /**
+     * 所在地code
+     */
+    public String areaCode;
 
-	/**
-	 * ����ǩ��
-	 */
-	public String sign;
+    /**
+     * 个性签名
+     */
+    public String sign;
 
-	/**
-	 * �û���ʵ����
-	 */
-	public String realName;
+    /**
+     * 用户真实姓名
+     */
+    public String realName;
 
-	/**
-	 * �ֻ���
-	 */
-	public String cellPhone;
+    /**
+     * 手机号
+     */
+    public String cellPhone;
 
-	/**
-	 * �û�������ϵ��ʽ
-	 */
-	public String email;
+    /**
+     * 用户反馈联系方式
+     */
+    public String email;
 
-	/**
-	 * ����
-	 */
-	public String feedback;
+    /**
+     * 反馈
+     */
+    public String feedback;
 
-	/**
-	 * ��������
-	 */
-	public String feedBackArea;
+    /**
+     * 反馈地区
+     */
+    public String feedBackArea;
 
-	/**
-	 * �Ƿ���VIP��Ա
-	 */
-	public boolean vip;
+    /**
+     * 是否是VIP会员
+     */
+    public boolean vip;
 
-	/**
-	 * �Ƿ������VIP��Ա
-	 */
-	public boolean isRealVip;
+    /**
+     * 是否是真的VIP会员
+     */
+    public boolean isRealVip;
 
-	/**
-	 * �Ƿ���������
-	 */
-	public boolean expireTime;
+    /**
+     * 是否在试用期
+     */
+    public boolean expireTime;
 
-	/**
-	 * ѯ������
-	 */
-	public int enquiryNum;
+    /**
+     * 询价条数
+     */
+    public int enquiryNum;
 
-	/**
-	 * Ӧ�ñ�ʾ
-	 */
-	public String appid;
+    /**
+     * 应用标示
+     */
+    public String appid;
 
-	/**
-	 * ͨ����ʶ
-	 */
-	public String channel_id;
+    /**
+     * 通道标识
+     */
+    public String channel_id;
 
-	/**
-	 * �û���ʶ
-	 */
-	public String user_id;
+    /**
+     * 用户标识
+     */
+    public String user_id;
 
-	/**
-	 * ע�᷽ʽ(0:��ͨע��;1:�ֻ���ע��)
-	 */
-	public int registerType;
+    /**
+     * 注册方式(0:普通注册;1:手机号注册)
+     */
+    public int registerType;
 
-	/**
-	 * �ֻ���֤��
-	 */
-	public String validateCode;
-	
-	/**
-	 * ���������ֻ���֤��
-	 */
-	public String resetPasswordCode;
-	
+    /**
+     * 手机验证码
+     */
+    public String validateCode;
 
-	/**
-	 * ������(1:�ֻ�;2:QQ)
-	 */
-	public int bindType;
+    /**
+     * 重置密码手机验证码
+     */
+    public String resetPasswordCode;
 
-	/**
-	 * QQUID
-	 */
-	public String qqUid;
 
-	/**
-	 * QQ�ǳ�
-	 */
-	public String qqNickName;
+    /**
+     * 绑定类型(1:手机;2:QQ)
+     */
+    public int bindType;
 
-	/**
-	 * �Ƿ��QQ
-	 */
-	public int bindQQ;
+    /**
+     * QQUID
+     */
+    public String qqUid;
 
-	/**
-	 * �Ƿ���ֻ�
-	 */
-	public int bindCellPhone;
+    /**
+     * QQ昵称
+     */
+    public String qqNickName;
 
-	/**
-	 * �����ֶ�
-	 */
-	public int point;
+    /**
+     * 是否绑定QQ
+     */
+    public int bindQQ;
 
-	/**
-	 * δ��ϵͳ��Ϣ����
-	 */
-	public int unReadSysMessageNumber;
+    /**
+     * 是否绑定手机
+     */
+    public int bindCellPhone;
 
-	/**
-	 * δ��˽����Ϣ����
-	 */
-	public int unReadChatNumber;
+    /**
+     * 积分字段
+     */
+    public int point;
 
-	/**
-	 * ��Ӧ�루0���ɹ���1��ʧ�ܣ�
-	 */
-	public int code;
+    /**
+     * 未读系统消息条数
+     */
+    public int unReadSysMessageNumber;
 
-	/**
-	 * code=1ʱ��ʾ���û�����Ϣ
-	 */
-	public String message;
+    /**
+     * 未读私人消息条数
+     */
+    public int unReadChatNumber;
 
-	/**
-	 * ���ص�����
-	 */
-	public String data;
+    /**
+     * 响应码（0：成功，1：失败）
+     */
+    public int code;
+
+    /**
+     * code=1时显示给用户的信息
+     */
+    public String message;
+
+    /**
+     * 返回的数据
+     */
+    public String data;
 }

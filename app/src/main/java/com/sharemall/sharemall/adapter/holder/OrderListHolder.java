@@ -5,7 +5,6 @@ import android.view.View;
 import com.sharemall.sharemall.MyApplication;
 import com.sharemall.sharemall.R;
 import com.sharemall.sharemall.adapter.OrderListChildAdapter;
-import com.sharemall.sharemall.beans.AddressInfo;
 import com.sharemall.sharemall.beans.OrderInfoItem;
 import com.sharemall.sharemall.view.ChildLiistView;
 
@@ -18,10 +17,11 @@ import java.util.List;
 
 public class OrderListHolder extends BaseHolder<OrderInfoItem> {
     private ChildLiistView listView;
+
     @Override
     public View initHolderView() {
-        View view = View.inflate(MyApplication.getInstance(), R.layout.item_order,null);
-        listView =  (ChildLiistView)view.findViewById(R.id.lv_order_childitem);
+        View view = View.inflate(MyApplication.getInstance(), R.layout.item_order, null);
+        listView = (ChildLiistView) view.findViewById(R.id.lv_order_childitem);
         return view;
     }
 
@@ -32,6 +32,6 @@ public class OrderListHolder extends BaseHolder<OrderInfoItem> {
         list.add(new OrderInfoItem());
         list.add(new OrderInfoItem());
         list.add(new OrderInfoItem());
-     listView.setAdapter(new OrderListChildAdapter(list));
+        listView.setAdapter(new OrderListChildAdapter(list));
     }
 }

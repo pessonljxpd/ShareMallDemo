@@ -1,8 +1,5 @@
 package com.sharemall.sharemall.utils;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,97 +8,95 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.DisplayMetrics;
 
-public class BaseParams
-{
-	private static BaseParams instance = new BaseParams();
+import java.util.HashMap;
+import java.util.Map;
 
-	private BaseParams()
-	{
-	}
+/**
+ * @author Shelly
+ */
+public class BaseParams {
+    private static BaseParams instance = new BaseParams();
 
-	public static BaseParams getInstance()
-	{
-		return instance;
-	}
+    private BaseParams() {
+    }
 
-	/**
-	 * ��������
-	 * 
-	 * @return ����
-	 */
-	public Map<String, String> getBaseParams(Activity activity)
-	{
-		return getBaseParams(0, activity);
-	}
+    public static BaseParams getInstance() {
+        return instance;
+    }
 
-	/**
-	 * ��������
-	 * 
-	 * @return ����
-	 */
-	public Map<String, String> getBaseParams(int action, Activity activity)
-	{
-		Map<String, String> params = new HashMap<String, String>();
-		// �ӿ�����
-		params.put("Action", action + "");
-		// �û�ID
-	
-		// �ֻ���
-		params.put("Mobile", Tools.trim(Tools.getUserPhoneNumber(activity)));
-	
-		// ʱ���
-		params.put("Time", System.currentTimeMillis() + "");
-		// �豸���
-		params.put("DeviceID", getImieStatus(activity));
-		// ����ϵͳ����
-		params.put("OS", "1");
-		// System.out.println("���壺" + Build.BOARD);
-		// System.out.println("androidϵͳ�����̣�" + Build.BRAND);
-		// System.out.println("�豸������" + Build.DEVICE);
-		// System.out.println("��ʾ��������" + Build.DISPLAY);
-		// System.out.println("Ӳ�����ƣ�" + Build.FINGERPRINT);
-		// System.out.println("Ӳ�������̣�" + Build.MANUFACTURER);
-		// System.out.println("�汾��" + Build.MODEL);
-		// System.out.println("�ֻ������̣�" + Build.PRODUCT);
+    /**
+     * 基本参数
+     *
+     * @return 参数
+     */
+    public Map<String, String> getBaseParams(Activity activity) {
+        return getBaseParams(0, activity);
+    }
 
-		// ����ϵͳ�汾��
-		params.put("UA", Build.MODEL + "[" + Build.VERSION.RELEASE + "]");
-		DisplayMetrics metrics = new DisplayMetrics();
-		activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-		// �ֱ���
-		params.put("Screen", metrics.heightPixels + "X" + metrics.widthPixels);
-		return params;
-	}
+    /**
+     * 基本参数
+     *
+     * @return 参数
+     */
+    public Map<String, String> getBaseParams(int action, Activity activity) {
+        Map<String, String> params = new HashMap<String, String>();
+        // 接口类型
+        params.put("Action", action + "");
+        // 用户ID
 
-	/**
-	 * ��ȡ�ֻ�Ψһʶ����
-	 * 
-	 * @return �ֻ�Ψһʶ����
-	 */
-	public String getImieStatus(Context context)
-	{
-		SharedPreferences sp = context.getSharedPreferences("config",
-		        Context.MODE_PRIVATE);
-		Editor editor = sp.edit();
-		String deviceId = sp.getString("IDID", "").trim();
+        // 手机号
+        params.put("Mobile", Tools.trim(Tools.getUserPhoneNumber(activity)));
 
-		if (Tools.isEmpty(deviceId))
-		{
-			// ���config�ļ���û�д洢IDID������Ҫ���»�ȡIDID,���ȿ���deviceId
-			TelephonyManager tm = (TelephonyManager) context
-			        .getSystemService(Context.TELEPHONY_SERVICE);
-			deviceId = tm != null ? Tools.trim(tm.getDeviceId()) : "";
+        // 时间戳
+        params.put("Time", System.currentTimeMillis() + "");
+        // 设备编号
+        params.put("DeviceID", getImieStatus(activity));
+        // 操作系统类型
+        params.put("OS", "1");
+        // System.out.println("主板：" + Build.BOARD);
+        // System.out.println("android系统定制商：" + Build.BRAND);
+        // System.out.println("设备参数：" + Build.DEVICE);
+        // System.out.println("显示屏参数：" + Build.DISPLAY);
+        // System.out.println("硬件名称：" + Build.FINGERPRINT);
+        // System.out.println("硬件制造商：" + Build.MANUFACTURER);
+        // System.out.println("版本：" + Build.MODEL);
+        // System.out.println("手机制造商：" + Build.PRODUCT);
 
-			// ���û�л�ȡ��deviceId,��ͨ��getMyUUID��ȡ
-			if (Tools.isEmpty(deviceId))
-			{
-				
-			}
+        // 操作系统版本号
+        params.put("UA", Build.MODEL + "[" + Build.VERSION.RELEASE + "]");
+        DisplayMetrics metrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        // 分辨率
+        params.put("Screen", metrics.heightPixels + "X" + metrics.widthPixels);
+        return params;
+    }
 
-			// ���浽config�ļ���
-			editor.putString("IDID", deviceId);
-			editor.commit();
-		}
-		return Tools.trim(deviceId);
-	}
+    /**
+     * 获取手机唯一识别码
+     *
+     * @return 手机唯一识别码
+     */
+    public String getImieStatus(Context context) {
+        SharedPreferences sp = context.getSharedPreferences("config",
+                Context.MODE_PRIVATE);
+        Editor editor = sp.edit();
+        String deviceId = sp.getString("IDID", "").trim();
+
+        if (Tools.isEmpty(deviceId)) {
+            // 如果config文件中没有存储IDID，则需要重新获取IDID,首先考虑deviceId
+            TelephonyManager tm = (TelephonyManager) context
+                    .getSystemService(Context.TELEPHONY_SERVICE);
+            deviceId = tm != null ? Tools.trim(tm.getDeviceId()) : "";
+
+            // 如果没有获取到deviceId,则通过getMyUUID获取
+            if (Tools.isEmpty(deviceId)) {
+
+            }
+
+            // 保存到config文件中
+            editor.putString("IDID", deviceId);
+            editor.commit();
+        }
+        return Tools.trim(deviceId);
+    }
 }

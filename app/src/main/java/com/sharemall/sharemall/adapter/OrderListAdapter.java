@@ -4,11 +4,11 @@ import com.sharemall.sharemall.adapter.holder.BaseHolder;
 import com.sharemall.sharemall.adapter.holder.OrderListHolder;
 import com.sharemall.sharemall.beans.OrderInfoItem;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2018/3/30 0030.
+ * @author Administrator
+ * @date 2018/3/30 0030
  */
 
 public class OrderListAdapter extends BasicAdapter<OrderInfoItem> {

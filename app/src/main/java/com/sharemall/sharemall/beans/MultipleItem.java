@@ -4,6 +4,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 /**
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+ * @author Shelly
  */
 public class MultipleItem implements MultiItemEntity {
     public static final int TEXT = 1;

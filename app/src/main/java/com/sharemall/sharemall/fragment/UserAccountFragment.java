@@ -15,11 +15,18 @@ import com.sharemall.sharemall.beans.JasonResult;
 
 /**
  * 账户主页
+ *
  * @author Shelly
  */
-public class MainAccountFragment extends BaseLoadFragment<JasonResult> {
+public class UserAccountFragment extends BaseLoadFragment<JasonResult> {
     private TextView tv_user_alias, tv_user_name;
     private ImageView iv_user_icon;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getLoaderManager().restartLoader(1, null, this);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,9 +37,8 @@ public class MainAccountFragment extends BaseLoadFragment<JasonResult> {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getLoaderManager().restartLoader(1, null, this);
+    public int setTitleBar() {
+        return R.id.toolbar;
     }
 
     @Override

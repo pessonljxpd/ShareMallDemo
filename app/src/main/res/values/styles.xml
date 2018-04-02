@@ -1,4 +1,22 @@
 <resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:screenOrientation">portrait</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
 
     <style name="tv_list_header">
         <item name="android:textSize">14sp</item>
@@ -118,7 +136,8 @@
         <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
         <item name="android:text">Sample Item</item>
     </style>
- <style name="btn_positive">
+
+    <style name="btn_positive">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_width">match_parent</item>
@@ -126,7 +145,6 @@
         <item name="android:background">@drawable/btn_blue_selector</item>
     </style>
 
-  
 
     <style name="tv_title">
         <item name="android:textSize">18sp</item>
@@ -157,16 +175,17 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/type_background</item>
     </style>
-    
+
     <style name="tv_content_login_text">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/login_user_text</item>
     </style>
+
     <style name="tv_content_login_text_number">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/login_user_text_number</item>
     </style>
-    
+
     <style name="tv_content">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/type_background</item>
@@ -202,23 +221,13 @@
         <item name="android:progressDrawable">@android:drawable/progress_horizontal</item>
         <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
     </style>
-     <style name="btn_negativel">
+
+    <style name="btn_negativel">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/type_background</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">45dip</item>
         <item name="android:background">@drawable/btn_exit_selector</item>
-    </style>
-
-
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:screenOrientation">portrait</item>
-
     </style>
 
     <style name="layout_ww">
@@ -257,13 +266,6 @@
         <item name="android:gravity">center</item>
         <item name="android:textColorHint">@color/login_btn_text_hint</item>
         <item name="android:textColor">@color/white</item>
-    </style>
-
-    <!--titleBar样式-->
-    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="actionBarItemBackground">@drawable/abc_item_background_holo_light</item>
-        <item name="selectableItemBackground">@drawable/abc_item_background_holo_light</item>
-        <item name="android:windowNoTitle">true</item>
     </style>
 
     <!--正常正文色体-->

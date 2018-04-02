@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background" >
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:clipToPadding="false"
+                android:fitsSystemWindows="true">
 
-   <LinearLayout
+    <LinearLayout
         android:id="@+id/ll_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dip" >
+        android:padding="15dip">
 
-  
 
         <LinearLayout
             android:id="@+id/ll_login_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_login_edit"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dip"
                 android:paddingLeft="5dip"
-                android:paddingRight="5dip" >
+                android:paddingRight="5dip">
 
                 <EditText
                     android:id="@+id/et_username"
                     style="@style/tv_content"
                     android:layout_width="match_parent"
                     android:layout_height="45dip"
-                    
+
                     android:background="@android:color/transparent"
                     android:drawableLeft="@drawable/icon_username"
                     android:drawablePadding="10dip"
@@ -40,9 +41,9 @@
                     android:padding="5dip"
                     android:singleLine="true"
                     android:textColorHint="#DCDCDC"
-                    android:textCursorDrawable="@null" />
+                    android:textCursorDrawable="@null"/>
 
-           
+
             </RelativeLayout>
 
             <ImageView
@@ -50,33 +51,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/line_1"
-                android:visibility="gone" />
+                android:visibility="gone"/>
 
             <ListView
                 android:id="@+id/lv_user"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:divider="@drawable/line"
-                android:visibility="gone" >
+                android:visibility="gone">
             </ListView>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/line" />
+                android:background="@drawable/line"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="45dip"
                 android:paddingLeft="5dip"
-                android:paddingRight="5dip" >
+                android:paddingRight="5dip">
 
                 <EditText
                     android:id="@+id/et_password"
                     style="@style/tv_content"
                     android:layout_width="match_parent"
                     android:layout_height="45dip"
-                  
+
                     android:background="@android:color/transparent"
                     android:drawableLeft="@drawable/icon_password"
                     android:drawablePadding="10dip"
@@ -86,7 +87,7 @@
                     android:padding="5dip"
                     android:singleLine="true"
                     android:textColorHint="#DCDCDC"
-                    android:textCursorDrawable="@null" />
+                    android:textCursorDrawable="@null"/>
 
             </RelativeLayout>
         </LinearLayout>
@@ -96,8 +97,8 @@
             style="@style/btn_positive"
             android:layout_marginTop="20dip"
             android:background="@drawable/btn_login_selector"
-            android:text="@string/btn_login" />
+            android:text="@string/btn_login"/>
     </LinearLayout>
 
-   
+
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.sharemall.sharemall.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -23,22 +24,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class OrderdetailActivity extends BaseLoadActivity<JasonResult>{
+public class OrderdetailActivity extends BaseLoadActivity<JasonResult> {
 
 
     private ListView lv_order_childitem;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_order_detail);
-        lv_order_childitem = (ListView) findViewById(R.id.lv_order_childitem);
+    public int bindLayout() {
+        return R.layout.activity_order_detail;
+    }
+
+    @Override
+    public void doBusiness(Context context, Bundle savedInstanceState) {
+        lv_order_childitem = findViewById(R.id.lv_order_childitem);
         List<OrderInfoItem> list = new ArrayList<>();
         list.add(new OrderInfoItem());
         list.add(new OrderInfoItem());
         list.add(new OrderInfoItem());
         list.add(new OrderInfoItem());
         lv_order_childitem.setAdapter(new OrderListChildAdapter(list));
+    }
+
+    @Override
+    public void widgetClick(View v) {
+
     }
 
 

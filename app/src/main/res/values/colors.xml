@@ -21,7 +21,7 @@
     <color name="colorAccent">#77FFFFFF</color>
 
     <color name="tab">#CACACA</color>
-    <color name="white">#ffffffff</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="light_blue">#629FCC</color>
     <color name="black">#ff000000</color>
     <color name="gray">#ff808080</color>
@@ -73,7 +73,6 @@
     <color name="light_white">#cccccc</color>
 
 
-
     <color name="color_light_blue">#00DDB6</color>
     <color name="txt_color">#48495F</color>
     <color name="item_bg">#FFFFFF</color>
@@ -99,7 +98,8 @@
     <color name="light_blue_color">#2987e9</color>
     <color name="alpha_80_black">#CC000000</color>
     <color name="bg_color">#EDEDED</color>
-    <color name="home_searchbox_bg">#b1b8bb</color>
+    <color name="home_search_box_bg">#55b1b8bb</color>
     <color name="search_hint_text_color">#737373</color>
+    <color name="search_text_color">#FFFFFFFF</color>
     <color name="divider">#ffd2d2d2</color>
 </resources>

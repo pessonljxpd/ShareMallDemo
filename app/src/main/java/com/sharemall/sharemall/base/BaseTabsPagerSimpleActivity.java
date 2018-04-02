@@ -1,8 +1,10 @@
 package com.sharemall.sharemall.base;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.TabHost;
@@ -11,6 +13,7 @@ import android.widget.TabHost.TabSpec;
 import android.widget.TabWidget;
 
 import com.sharemall.sharemall.R;
+import com.sharemall.sharemall.utils.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,21 +33,28 @@ public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implement
     private List<Integer> containerIDs;
     private List<Boolean> isLoadContents;
 
+    /**
+     * 绑定布局
+     *
+     * @return
+     */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_tabs_pager_simple_activity);
-        container = (FrameLayout) findViewById(R.id.simple_fragment);
-        mTabHost = (TabHost) findViewById(android.R.id.tabhost);
+    public abstract int bindLayout();
+
+    @Override
+    public void doBusiness(Context context, Bundle savedInstanceState) {
+        container = findViewById(R.id.simple_fragment);
+        mTabHost = findViewById(android.R.id.tabhost);
+
         mTabHost.setup();
         mTabWidget = mTabHost.getTabWidget();
         mTabWidget.setDividerDrawable(null);
         mTabHost.setOnTabChangedListener(this);
 
-        fragments = new ArrayList<BaseFragment>();
-        isLoadContents = new ArrayList<Boolean>();
-        containerIDs = new ArrayList<Integer>();
-        containers = new ArrayList<FrameLayout>();
+        fragments = new ArrayList<>();
+        isLoadContents = new ArrayList<>();
+        containerIDs = new ArrayList<>();
+        containers = new ArrayList<>();
 
         addTabs();
 
@@ -54,7 +64,6 @@ public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implement
                 setTabChange(currentIndex);
             }
         }
-
     }
 
     @Override
@@ -96,8 +105,7 @@ public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implement
      * @param bundle      Tab页Class对象
      * @param containerID 传递参数
      */
-    protected void addTab(View tabView, BaseFragment fragment, Bundle bundle,
-            Integer containerID) {
+    protected void addTab(View tabView, BaseFragment fragment, Bundle bundle, Integer containerID) {
         isLoadContents.add(false);
         containerIDs.add(containerID);
 
@@ -124,8 +132,7 @@ public abstract class BaseTabsPagerSimpleActivity extends BaseActivity implement
         for (int i = 0; i < isLoadContents.size(); i++) {
             if (currentIndex == i) {
                 if (!isLoadContents.get(i)) {
-                    replaceFragment(containerIDs.get(i),
-                            fragments.get(currentIndex), true);
+                    replaceFragment(containerIDs.get(i), fragments.get(currentIndex), true);
                     isLoadContents.set(i, true);
                 }
                 containers.get(i).setVisibility(View.VISIBLE);

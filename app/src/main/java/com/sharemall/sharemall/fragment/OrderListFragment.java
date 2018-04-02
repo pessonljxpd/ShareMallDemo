@@ -32,8 +32,9 @@ public class OrderListFragment extends BaseLoadFragment<JasonResult> {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_order_list,null);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_order_list, null);
         lv_order_list = (ListView) view.findViewById(R.id.lv_order_list);
         List<OrderInfoItem> list = new ArrayList<>();
         list.add(new OrderInfoItem());
@@ -42,7 +43,7 @@ public class OrderListFragment extends BaseLoadFragment<JasonResult> {
         list.add(new OrderInfoItem());
         lv_order_list.setAdapter(new OrderListAdapter(list));
         ordertype = getArguments().getInt(ConstantUtil.ORDER_TYPE);
-        switch (ordertype){
+        switch (ordertype) {
             case ConstantUtil.ORDER_TYPE_UNPAY:
 
                 break;
@@ -55,8 +56,10 @@ public class OrderListFragment extends BaseLoadFragment<JasonResult> {
             case ConstantUtil.ORDER_TYPE_CANCEL:
 
                 break;
+            default:
+                break;
         }
-        Toast.makeText(getContext(),"OrderList" + ordertype,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "OrderList" + ordertype, Toast.LENGTH_SHORT).show();
         return view;
     }
 

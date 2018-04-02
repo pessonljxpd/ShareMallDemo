@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/dull_blue">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/navigation"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/margin_8dp"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/ic_launcher"/>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/search_et"
+            style="@style/layout_mw"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:layout_toEndOf="@id/navigation"
+            android:layout_toRightOf="@id/navigation"
+            android:background="@drawable/home_search_box_drawable"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:drawablePadding="3dp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:gravity="center_vertical"
+            android:text="@string/search"
+            android:textColor="@color/search_text_color"
+            android:textSize="18sp"/>
+
+    </RelativeLayout>
+
+</android.support.v7.widget.Toolbar>

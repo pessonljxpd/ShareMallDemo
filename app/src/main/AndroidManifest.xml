@@ -41,7 +41,6 @@
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -49,11 +48,10 @@
         <activity
             android:name=".activity.UserLoginActivity"
             android:theme="@android:style/Theme.NoTitleBar">
-
         </activity>
-        <activity android:name=".activity.AddressListActivity"></activity>
-        <activity android:name=".activity.OrderListActivity"></activity>
-        <activity android:name=".activity.OrderdetailActivity"></activity>
+        <activity android:name=".activity.AddressListActivity"/>
+        <activity android:name=".activity.OrderListActivity"/>
+        <activity android:name=".activity.OrderdetailActivity"/>
 
     </application>
 

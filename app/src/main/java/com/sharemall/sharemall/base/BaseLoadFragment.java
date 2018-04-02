@@ -21,6 +21,7 @@ public abstract class BaseLoadFragment<L> extends BaseFragment implements Loader
 
     /**
      * onCreateLoader
+     *
      * @param arg0
      * @param arg1
      * @return

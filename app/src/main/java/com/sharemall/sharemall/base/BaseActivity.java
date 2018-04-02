@@ -1,21 +1,29 @@
 package com.sharemall.sharemall.base;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import com.gyf.barlibrary.ImmersionBar;
+import com.sharemall.sharemall.R;
 
 import java.io.File;
 
 /**
  * @author Shelly
  */
-public class BaseActivity extends FragmentActivity implements IntentListener {
+public abstract class BaseActivity extends FragmentActivity implements IntentListener, View.OnClickListener {
     /**
      * 参数传递标示
      */
@@ -32,25 +40,104 @@ public class BaseActivity extends FragmentActivity implements IntentListener {
 
     public boolean isHasFragment = false;
     private IntentListener intentFactory;
+    /**
+     * 当前Activity渲染的视图View
+     */
+    private View mContextView = null;
 
+    /**
+     * 沉浸式状态栏
+     */
+    private ImmersionBar mImmersionBar;
+    private int mStatusBarView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if (isAllowFullScreen()) {
+            getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+        super.onCreate(savedInstanceState);
+        mImmersionBar = ImmersionBar.with(this);
+        if (null!=getStatusBarView()){
+            mImmersionBar.statusBarView(getStatusBarView());
+        }
+        mImmersionBar.init();
 
+        BaseAppManager.getInstance().addActivity(this);
         mProgressBar = new MyProgressBar(this);
         if (savedInstanceState == null) {
             intentData = getIntent().getExtras();
         } else {
             intentData = savedInstanceState.getBundle(PARAM_INTENT);
         }
-        Bundle bundle = intentData != null
-                && intentData.getBundle(PARAM_INTENT) != null ? intentData
-                .getBundle(PARAM_INTENT) : intentData;
+        Bundle bundle;
+        if (intentData != null && intentData.getBundle(PARAM_INTENT) != null) {
+            bundle = intentData.getBundle(PARAM_INTENT);
+        } else {
+            bundle = intentData;
+        }
         initIntentData(bundle != null ? bundle : new Bundle());
-        super.onCreate(savedInstanceState);
+        View mView = bindView();
+        if (null == mView) {
+            mContextView = LayoutInflater.from(this).inflate(bindLayout(), null);
+        } else {
+            mContextView = mView;
+        }
+        doBeforeSetContentView(this);
+        setContentView(mContextView);
+        getWindow().setBackgroundDrawable(null);
+        if (!isScreenRote()) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
         intentFactory = new ActivityIntentFactory(this);
+
+        doBusiness(this, savedInstanceState);
     }
 
+    /**
+     * 在setContentView()方法调用之前做一些处理
+     *
+     * @param context
+     */
+    protected void doBeforeSetContentView(Context context) {
+    }
+
+    /**
+     * @return
+     * @Description: 绑定视图
+     * @return: View
+     */
+    public View bindView() {
+        return null;
+    }
+
+    /**
+     * 绑定布局
+     *
+     * @return
+     */
+    public abstract int bindLayout();
+
+    /**
+     * 业务操作
+     *
+     * @param context
+     * @param savedInstanceState
+     */
+    public abstract void doBusiness(Context context, Bundle savedInstanceState);
+
+    @Override
+    public void onClick(View v) {
+        widgetClick(v);
+    }
+
+    /**
+     * View点击
+     *
+     * @param v
+     */
+    public abstract void widgetClick(View v);
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -76,6 +163,15 @@ public class BaseActivity extends FragmentActivity implements IntentListener {
      */
     public void limitEditTextLength(EditText et, int length) {
         et.addTextChangedListener(new MyTextWatcher(et, length));
+    }
+
+    /**
+     * 返回当前布局文件中的占位statusBarView
+     *
+     * @return
+     */
+    public View getStatusBarView() {
+        return null;
     }
 
     private class MyTextWatcher implements TextWatcher {
@@ -333,7 +429,23 @@ public class BaseActivity extends FragmentActivity implements IntentListener {
 
     }
 
-    public void onClick(View v) {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    /**
+     * 是否允许全屏
+     */
+    public boolean isAllowFullScreen() {
+        return false;
+    }
+
+    /**
+     * 是否允许屏幕旋转
+     */
+    public boolean isScreenRote() {
+        return false;
     }
 
 }

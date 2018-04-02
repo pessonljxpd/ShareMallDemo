@@ -4,10 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+
+import com.gyf.barlibrary.ImmersionBar;
+import com.sharemall.sharemall.R;
 
 import java.io.File;
 
@@ -27,13 +32,16 @@ public class BaseFragment extends Fragment implements OnClickListener, IntentLis
     public MyProgressBar mProgressBar;
 
     private IntentListener intentFactory;
-    private BaseActivity baseActivity;
+    private BaseActivity mActivity;
+
+    protected ImmersionBar mImmersionBar;
 
     @Override
     public void onAttach(Activity activity) {
         if (DEBUG) { System.out.println("fragment开始onAttach"); }
-
         super.onAttach(activity);
+        mActivity = (BaseActivity) activity;
+
     }
 
     @Override
@@ -41,7 +49,6 @@ public class BaseFragment extends Fragment implements OnClickListener, IntentLis
         if (DEBUG) { System.out.println("fragment开始onCreate"); }
         super.onCreate(savedInstanceState);
         intentFactory = new FragmentIntentFactory(this);
-        baseActivity = getBaseActivity();
         mProgressBar = new MyProgressBar(getActivity());
     }
 
@@ -52,7 +59,7 @@ public class BaseFragment extends Fragment implements OnClickListener, IntentLis
      * @param length 限制长度
      */
     public void limitEditTextLength(final EditText et, final int length) {
-        if (baseActivity != null) { baseActivity.limitEditTextLength(et, length); }
+        if (mActivity != null) { mActivity.limitEditTextLength(et, length); }
     }
 
     /**
@@ -276,6 +283,29 @@ public class BaseFragment extends Fragment implements OnClickListener, IntentLis
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (view != null) {
+            View titleBar = view.findViewById(setTitleBar());
+            if (titleBar != null) {
+                ImmersionBar.setTitleBar(mActivity, titleBar);
+            }
+            View statusBarView = view.findViewById(setStatusBarView());
+            if (statusBarView != null) {
+                ImmersionBar.setStatusBarView(mActivity, statusBarView);
+            }
+        }
+    }
+
+    public int setStatusBarView() {
+        return 0;
+    }
+
+    public int setTitleBar() {
+        return 0;
+    }
+
+    @Override
     public void onStart() {
         if (DEBUG) { System.out.println("fragment开始onStart"); }
         super.onStart();
@@ -291,24 +321,13 @@ public class BaseFragment extends Fragment implements OnClickListener, IntentLis
     public void onDestroy() {
         if (DEBUG) { System.out.println("fragment开始onDestroy"); }
         super.onDestroy();
+        if (mImmersionBar != null) {
+            mImmersionBar.destroy();
+        }
     }
 
     @Override
     public void onClick(View v) {
-    }
-
-    /**
-     * 获取Activity基类对象
-     *
-     * @return BaseActivity对象
-     */
-    public BaseActivity getBaseActivity() {
-        try {
-            return (BaseActivity) getActivity();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 
 }

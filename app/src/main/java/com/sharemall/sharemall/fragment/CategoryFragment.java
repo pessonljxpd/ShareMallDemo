@@ -14,8 +14,8 @@ import com.sharemall.sharemall.beans.JasonResult;
 
 
 /**
- * �˻���ҳ
- * 
+ *
+ * @author Shelly
  */
 public class CategoryFragment extends BaseLoadFragment<JasonResult>
 {

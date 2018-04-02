@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.widget.ImageView;
 
+import com.blankj.utilcode.util.Utils;
+import com.bumptech.glide.util.Util;
 import com.sharemall.sharemall.beans.UserInfo;
 import com.sharemall.sharemall.itf.ISharePreferenceFactory;
 import com.sharemall.sharemall.utils.BaseShareference;
@@ -11,36 +13,35 @@ import com.sharemall.sharemall.utils.DensityUtil;
 import com.sharemall.sharemall.utils.ImageUtil;
 
 
+/**
+ * @author Shelly
+ */
 public class MyApplication extends Application {
+
     private static MyApplication instance = null;
     /**
      * 是否登录
      */
     public boolean isLogin = false;
-
     /**
      * 应用是否可以升级
      */
     public boolean isAppUpdate = false;
-
     public boolean isModify = false;
-
     /**
      * 用户信息
      */
     private UserInfo user;
-
-
     public boolean isReceivered = false;
-
     private ISharePreferenceFactory sharePreferenceFactory;
 
     @Override
     public void onCreate() {
+        super.onCreate();
         sharePreferenceFactory = new BaseShareference(this);
         instance = this;
 
-        super.onCreate();
+        Utils.init(this);
     }
 
     public static MyApplication getInstance() {
@@ -75,10 +76,9 @@ public class MyApplication extends Application {
      * @param imagePath    头像地址
      * @param iv_user_icon 头像控件
      */
-    public static void initUserIcon(Context context, ImageUtil imageUtil,
-            String imagePath, final ImageView iv_user_icon, int dipSize) {
-        imageUtil.loadBitmap(iv_user_icon, imagePath,
-                DensityUtil.dip2px(context, dipSize), R.drawable.defaut,
+    public static void initUserIcon(Context context, ImageUtil imageUtil, String imagePath,
+            final ImageView iv_user_icon, int dipSize) {
+        imageUtil.loadBitmap(iv_user_icon, imagePath, DensityUtil.dip2px(context, dipSize), R.drawable.defaut,
                 DensityUtil.dip2px(context, 7));
     }
 

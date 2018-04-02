@@ -1,178 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.sharemall.sharemall.view.MyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <include layout="@layout/header_search_view"/>
+
+    <com.sharemall.sharemall.view.MyScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="10dip" >
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/ll_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dip"
-            android:background="@drawable/bg_all_selector"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="10dip" >
-
-            <ImageView
-                android:id="@+id/iv_user_icon"
-                android:layout_width="80dip"
-                android:layout_height="80dip"
-                android:layout_marginLeft="5dip"
-                android:scaleType="centerCrop"
-                android:src="@drawable/defaut" />
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="0dip"
+                android:id="@+id/ll_user"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_margin="10dip"
+                android:background="@drawable/bg_all_selector"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:paddingLeft="10dip" >
+                android:orientation="horizontal"
+                android:padding="10dip">
 
-                <TextView
-                    android:id="@+id/tv_user_alias"
-                    style="@style/tv_content_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dip"
-                    android:drawablePadding="10dip"
-                    android:drawableRight="@drawable/logo_vip"
-                    android:gravity="center_vertical"
-                    android:hint="@string/account_user_alias_prompt" />
+                <ImageView
+                    android:id="@+id/iv_user_icon"
+                    android:layout_width="80dip"
+                    android:layout_height="80dip"
+                    android:layout_marginLeft="5dip"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/defaut"/>
 
                 <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dip">
+
+                    <TextView
+                        android:id="@+id/tv_user_alias"
+                        style="@style/tv_content_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dip"
+                        android:drawablePadding="10dip"
+                        android:drawableRight="@drawable/logo_vip"
+                        android:gravity="center_vertical"
+                        android:hint="@string/account_user_alias_prompt"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dip"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            style="@style/tv_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/account_user_name_prompt"/>
+
+                        <TextView
+                            android:id="@+id/tv_user_name"
+                            style="@style/tv_content"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dip"
-                    android:gravity="center_vertical" >
-
-                    <TextView
-                        style="@style/tv_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/account_user_name_prompt" />
-
-                    <TextView
-                        android:id="@+id/tv_user_name"
-                        style="@style/tv_content"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp" />
-                </LinearLayout>
+                    android:src="@drawable/logo_right"/>
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/logo_right" />
+                android:layout_margin="10dip"
+                android:background="@drawable/bg_login_edit"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_modify_password"
+                    style="@style/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:background="@drawable/bg_top_selector"
+                    android:drawableLeft="@drawable/icon_modify_pwd"
+                    android:drawablePadding="5dip"
+                    android:drawableRight="@drawable/logo_right"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:text="@string/account_modify_password"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/line"/>
+
+                <TextView
+                    android:id="@+id/tv_feedback"
+                    style="@style/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:background="@drawable/bg_middle_selector"
+                    android:drawableLeft="@drawable/icon_feedback"
+                    android:drawablePadding="5dip"
+                    android:drawableRight="@drawable/logo_right"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:text="@string/account_feedback"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/line"/>
+
+                <TextView
+                    android:id="@+id/tv_cooperation"
+                    style="@style/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:background="@drawable/bg_middle_selector"
+                    android:drawableLeft="@drawable/icon_cooperative"
+                    android:drawablePadding="5dip"
+                    android:drawableRight="@drawable/logo_right"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:text="@string/account_cooperation"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/line"/>
+
+                <TextView
+                    android:id="@+id/tv_about_us"
+                    style="@style/tv_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dip"
+                    android:background="@drawable/bg_bottom_selector"
+                    android:drawableLeft="@drawable/icon_about_us"
+                    android:drawablePadding="5dip"
+                    android:drawableRight="@drawable/logo_right"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:paddingRight="10dip"
+                    android:text="@string/account_about_us"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_app_update"
+                style="@style/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="45dip"
+                android:layout_margin="10dip"
+                android:background="@drawable/bg_all_selector"
+                android:drawableLeft="@drawable/icon_app_update"
+                android:drawablePadding="5dip"
+                android:drawableRight="@drawable/logo_right"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:text="@string/account_version_update"/>
+
+            <Button
+                android:id="@+id/btn_register"
+                style="@style/btn_negativel"
+                android:layout_margin="10dip"
+                android:background="@drawable/btn_exit_selector"
+                android:text="@string/btn_logout"/>
         </LinearLayout>
+    </com.sharemall.sharemall.view.MyScrollView>
+</LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dip"
-            android:background="@drawable/bg_login_edit"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/tv_modify_password"
-                style="@style/tv_content"
-                android:layout_width="match_parent"
-                android:layout_height="45dip"
-                android:background="@drawable/bg_top_selector"
-                android:drawableLeft="@drawable/icon_modify_pwd"
-                android:drawablePadding="5dip"
-                android:drawableRight="@drawable/logo_right"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="@string/account_modify_password" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/line" />
-
-            <TextView
-                android:id="@+id/tv_feedback"
-                style="@style/tv_content"
-                android:layout_width="match_parent"
-                android:layout_height="45dip"
-                android:background="@drawable/bg_middle_selector"
-                android:drawableLeft="@drawable/icon_feedback"
-                android:drawablePadding="5dip"
-                android:drawableRight="@drawable/logo_right"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="@string/account_feedback" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/line" />
-
-            <TextView
-                android:id="@+id/tv_cooperation"
-                style="@style/tv_content"
-                android:layout_width="match_parent"
-                android:layout_height="45dip"
-                android:background="@drawable/bg_middle_selector"
-                android:drawableLeft="@drawable/icon_cooperative"
-                android:drawablePadding="5dip"
-                android:drawableRight="@drawable/logo_right"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="@string/account_cooperation" />
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/line" />
-
-            <TextView
-                android:id="@+id/tv_about_us"
-                style="@style/tv_content"
-                android:layout_width="match_parent"
-                android:layout_height="45dip"
-                android:background="@drawable/bg_bottom_selector"
-                android:drawableLeft="@drawable/icon_about_us"
-                android:drawablePadding="5dip"
-                android:drawableRight="@drawable/logo_right"
-                android:gravity="center_vertical"
-                android:paddingLeft="10dip"
-                android:paddingRight="10dip"
-                android:text="@string/account_about_us" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tv_app_update"
-            style="@style/tv_content"
-            android:layout_width="match_parent"
-            android:layout_height="45dip"
-            android:layout_margin="10dip"
-            android:background="@drawable/bg_all_selector"
-            android:drawableLeft="@drawable/icon_app_update"
-            android:drawablePadding="5dip"
-            android:drawableRight="@drawable/logo_right"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
-            android:text="@string/account_version_update" />
-
-        <Button
-            android:id="@+id/btn_register"
-            style="@style/btn_negativel"
-            android:layout_margin="10dip"
-            android:background="@drawable/btn_exit_selector"
-            android:text="@string/btn_logout" />
-    </LinearLayout>
-
-</com.sharemall.sharemall.view.MyScrollView>
